@@ -1,5 +1,10 @@
 import express from "express";
 import cors from "cors";
+import morganMiddleware from "./config/morgan.js";
+
+import routes from "./routes/index.js";
+import notFound from "./middlewares/notFound.middleware.js";
+import errorHandler from "./middlewares/error.middleware.js";
 
 const app = express();
 
@@ -7,6 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(morganMiddleware);
 
 // Health Check Route
 app.get("/health", (req, res) => {
@@ -20,24 +27,12 @@ app.get("/health", (req, res) => {
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // API Routes
-// app.use("/api/auth", authRoutes);
-// app.use("/api/books", bookRoutes);
-// app.use("/api/members", memberRoutes);
+app.use("/api", routes);
 
 // 404 Handler
-app.use((req, res) => {
-    res.status(404).json({
-        success: false,
-        message: "Route not found",
-    });
-});
+app.use(notFound);
 
 // Global Error Handler
-app.use((err, req, res, next) => {
-    res.status(err.statusCode || 500).json({
-        success: false,
-        message: err.message || "Internal Server Error",
-    });
-});
+app.use(errorHandler);
 
 export default app;
