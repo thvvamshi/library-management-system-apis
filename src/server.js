@@ -12,4 +12,8 @@ const startServer = async () => {
     });
 };
 
-startServer();
+if (env.NODE_ENV !== "test") {
+    startServer();
+}
+
+export default startServer;

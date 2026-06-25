@@ -10,19 +10,6 @@ const MESSAGES = {
     FORBIDDEN: "Access denied",
   },
 
-  USER: {
-    CREATED: "User created successfully",
-    FETCHED: "Users retrieved successfully",
-    UPDATED: "User updated successfully",
-    DELETED: "User deleted successfully",
-
-    NOT_FOUND: "User not found",
-    ALREADY_EXISTS: "User already exists",
-
-    INVALID_ROLE: "Invalid user role",
-    CANNOT_DELETE_ADMIN: "Admin cannot be deleted",
-  },
-
   BOOK: {
     CREATED: "Book created successfully",
     FETCHED: "Books retrieved successfully",
@@ -49,6 +36,8 @@ const MESSAGES = {
   },
 
   MEMBER: {
+    FETCHED: "Members retrieved successfully",
+    DELETED: "Member deleted successfully",
     NOT_FOUND: "Member not found",
   },
 

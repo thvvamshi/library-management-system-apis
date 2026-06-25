@@ -46,7 +46,6 @@ const bookSchema = new mongoose.Schema(
 
 // Create indexes for faster searching
 bookSchema.index({ title: "text", author: "text" });
-bookSchema.index({ isbn: 1 });
 bookSchema.index({ category: 1 });
 
 const Book = mongoose.model("Book", bookSchema);
