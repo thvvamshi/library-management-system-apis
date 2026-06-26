@@ -2,18 +2,24 @@ import app from "./app.js";
 import connectDB from "./config/db.js";
 import env from "./config/env.js";
 
-// Start Server
+// start server
 const startServer = async () => {
-    await connectDB();
+    try {
 
-    app.listen(env.PORT, () => {
-        console.log(`🚀 Server running on http://localhost:${env.PORT}`);
-        console.log(`🌍 Environment: ${env.NODE_ENV}`);
-    });
+        await connectDB();
+
+        app.listen(env.PORT, () => {
+            console.log(`🚀 Server running on port ${env.PORT}`);
+            console.log(`🌍 Environment: ${env.NODE_ENV}`);
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        process.exit(1);
+
+    }
 };
 
-if (env.NODE_ENV !== "test") {
-    startServer();
-}
-
-export default startServer;
+startServer();
