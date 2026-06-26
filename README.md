@@ -18,6 +18,19 @@ A production-ready **Library Management System REST API** built with **Node.js**
 
 </p>
 
+
+# 🌐 Live Deployment
+
+The Library Management System API is deployed and publicly accessible.
+
+| Service | URL |
+|----------|-----|
+| 🚀 Live API | https://library-management-system-apis.onrender.com |
+| 📖 Swagger Documentation | https://library-management-system-apis.onrender.com/api-docs |
+| ❤️ Health Check | https://library-management-system-apis.onrender.com/health |
+
+---
+
 ---
 
 # ✨ Features
