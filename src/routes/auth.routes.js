@@ -25,4 +25,12 @@ router.post(
     authController.login
 );
 
+// register-librarian
+router.post(
+    "/register-librarian",
+    registerValidator,
+    validate,
+    authController.registerLibrarian,
+);
+
 export default router;

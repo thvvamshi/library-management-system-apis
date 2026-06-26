@@ -1,4 +1,4 @@
-import swaggerJsdoc from "swagger-jsdoc";
+import swaggerJSDoc from "swagger-jsdoc";
 
 const options = {
     definition: {
@@ -7,12 +7,14 @@ const options = {
         info: {
             title: "Library Management System API",
             version: "1.0.0",
-            description: "REST API Documentation",
+            description:
+                "REST API for Library Management System",
         },
 
         servers: [
             {
-                url: "http://localhost:5000/api",
+                url: "http://localhost:5000",
+                description: "Development Server",
             },
         ],
 
@@ -25,17 +27,13 @@ const options = {
                 },
             },
         },
-
-        security: [
-            {
-                bearerAuth: [],
-            },
-        ],
     },
 
-    apis: [],
+    apis: [
+        "./src/docs/*.swagger.js",
+    ],
 };
 
-const swaggerSpec = swaggerJsdoc(options);
+const swaggerSpec = swaggerJSDoc(options);
 
 export default swaggerSpec;

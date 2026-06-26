@@ -1,9 +1,9 @@
 import { Router } from "express";
 
 import memberController from "../controllers/member.controller.js";
-
 import authenticate from "../middlewares/auth.middleware.js";
 import authorize from "../middlewares/role.middleware.js";
+import borrowController from "../controllers/borrow.controller.js";
 
 import { ROLES } from "../constants/index.js";
 
@@ -17,6 +17,14 @@ router.get(
     authenticate,
     authorize(ROLES.LIBRARIAN),
     memberController.getMembers
+);
+
+// My Borrowed Books
+router.get(
+    "/me/books",
+    authenticate,
+    authorize(ROLES.MEMBER),
+    borrowController.getMyBorrowedBooks,
 );
 
 // Delete Member (Librarian Only)
